@@ -3,7 +3,7 @@ WORKDIR /go/src/github.com/AliyunContainerService/image-syncer
 COPY ./ ./
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make
 
-FROM alpine:latest
+FROM alpine:3.19.1
 WORKDIR /bin/
 COPY --from=builder /go/src/github.com/AliyunContainerService/image-syncer/image-syncer ./
 RUN chmod +x ./image-syncer
